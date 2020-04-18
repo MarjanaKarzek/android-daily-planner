@@ -12,4 +12,5 @@ dependencies {
   implementation Libs.Retrofit.retrofitGson
   implementation Libs.Retrofit.retrofitRxAdapter
   implementation Libs.Gson.gson
+
 }

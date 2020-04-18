@@ -55,4 +55,6 @@ dependencies {
   implementation Libs.Timber.timber
   implementation Libs.ReactiveX.Java.rxJava2Android
   implementation Libs.OkHttp.okHttp
+  implementation Libs.Gson.gson
+
 }

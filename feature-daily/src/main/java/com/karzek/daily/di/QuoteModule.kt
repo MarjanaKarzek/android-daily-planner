@@ -1,7 +1,9 @@
 package com.karzek.daily.di
 
 import com.karzek.daily.data.quote.QuoteRepository
-import com.karzek.daily.data.quote.source.QuoteDataSource
+import com.karzek.daily.data.quote.source.IQuoteLocalDataSource
+import com.karzek.daily.data.quote.source.IQuoteRemoteDataSource
+import com.karzek.daily.data.quote.source.QuoteLocalDataSource
 import com.karzek.daily.data.quote.source.QuoteRemoteDataSource
 import com.karzek.daily.domain.quote.GetQuoteOfTheDay
 import com.karzek.daily.domain.quote.IGetQuoteOfTheDay
@@ -17,12 +19,15 @@ import dagger.Module
 interface QuoteModule {
 
     @Binds
-    fun bindQuoteRemoteDataSource(remoteDataSource: QuoteRemoteDataSource) : QuoteDataSource
+    fun bindQuoteRemoteDataSource(remoteDataSource: QuoteRemoteDataSource): IQuoteRemoteDataSource
 
     @Binds
-    fun bindQuoteRepository(quoteRepository: QuoteRepository) : IQuoteRepository
+    fun provideQuoteLocalDataSource(quoteLocalDataSource: QuoteLocalDataSource): IQuoteLocalDataSource
 
     @Binds
-    fun bindGetQuoteOfTheDayUseCase(getQuoteOfTheDay: GetQuoteOfTheDay) : IGetQuoteOfTheDay
+    fun bindQuoteRepository(quoteRepository: QuoteRepository): IQuoteRepository
+
+    @Binds
+    fun bindGetQuoteOfTheDayUseCase(getQuoteOfTheDay: GetQuoteOfTheDay): IGetQuoteOfTheDay
 
 }

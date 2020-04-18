@@ -7,7 +7,7 @@ import javax.inject.Inject
 
 class QuoteRemoteDataSource @Inject constructor(
     private val apiService: QuoteApiService
-) : QuoteDataSource {
+) : IQuoteRemoteDataSource {
 
     override fun getQuoteOfTheDay(): Single<Quote> {
         return apiService.getQuoteOfTheDay()
