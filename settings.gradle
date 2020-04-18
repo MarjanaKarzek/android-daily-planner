@@ -1,0 +1,4 @@
+rootProject.name='DailyPlanner'
+include ':app'
+include ':core'
+include ':buildSrc'
