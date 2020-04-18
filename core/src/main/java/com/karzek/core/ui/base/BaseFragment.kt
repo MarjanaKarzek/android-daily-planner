@@ -1,15 +1,20 @@
 package com.karzek.core.ui.base
 
+import android.os.Bundle
+import android.view.View
 import androidx.annotation.LayoutRes
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.karzek.core.util.nonConcurrentLazy
 import dagger.android.support.DaggerFragment
+import io.reactivex.disposables.CompositeDisposable
 import javax.inject.Inject
 
 abstract class BaseFragment(@LayoutRes layoutRes: Int) : DaggerFragment(layoutRes) {
 
     abstract fun getTagForStack() : String
+
+    protected val compositeDisposable = CompositeDisposable()
 
     @Inject
     lateinit var viewModelFactory: ViewModelProvider.Factory
@@ -29,4 +34,8 @@ abstract class BaseFragment(@LayoutRes layoutRes: Int) : DaggerFragment(layoutRe
             ViewModelProvider(requireActivity(), viewModelFactory).get(T::class.java)
         }
 
+    override fun onDestroyView() {
+        compositeDisposable.clear()
+        super.onDestroyView()
+    }
 }

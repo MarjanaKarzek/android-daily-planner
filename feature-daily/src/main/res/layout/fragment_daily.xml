@@ -1,15 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
     >
 
   <TextView
+      android:id="@+id/quote_text"
       android:layout_width="match_parent"
-      android:layout_height="match_parent"
-      android:gravity="center"
-      android:text="Some Fragment"
-      android:textSize="48sp"
+      android:layout_height="wrap_content"
+      android:layout_margin="16dp"
+      android:textAlignment="center"
+      android:textSize="12sp"
+      tools:text="Some Quote that is inspirational"
       />
 
-</FrameLayout>
+  <TextView
+      android:id="@+id/quote_author"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:layout_margin="16dp"
+      android:textAlignment="center"
+      android:textSize="12sp"
+      tools:text="Some Author"
+      />
+
+</LinearLayout>

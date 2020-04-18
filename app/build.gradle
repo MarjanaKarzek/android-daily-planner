@@ -52,4 +52,7 @@ dependencies {
   implementation Libs.Kotlin.stdlib
   implementation Libs.AndroidX.appcompat
   implementation Libs.AndroidX.coreKtx
+  implementation Libs.Timber.timber
+  implementation Libs.ReactiveX.Java.rxJava2Android
+  implementation Libs.OkHttp.okHttp
 }

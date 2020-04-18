@@ -3,5 +3,13 @@ import com.karzek.buildsrc.Libs
 apply from: "$rootDir/gradle/android-library.gradle"
 
 dependencies {
-  implementation Libs.ReactiveX.Java.rxJava3
+  implementation Libs.ReactiveX.Java.rxJava2Android
+
+  implementation Libs.Retrofit.retrofit
+  implementation Libs.Retrofit.retrofitGson
+  implementation Libs.Retrofit.retrofitRxAdapter
+  implementation Libs.OkHttp.okHttp
+  debugImplementation Libs.Chuck.debug
+  releaseImplementation Libs.Chuck.release
+  implementation Libs.Gson.gson
 }

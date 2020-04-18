@@ -22,6 +22,12 @@ object Libs {
         const val coreKtx = "androidx.core:core-ktx:1.2.0"
     }
 
+    object Chuck {
+        private const val version = "1.1.0"
+        const val debug = "com.readystatesoftware.chuck:library:$version"
+        const val release = "com.readystatesoftware.chuck:library-no-op:$version"
+    }
+
     object Dagger {
         private const val version = "2.27"
         const val dagger = "com.google.dagger:dagger:$version"
@@ -37,11 +43,38 @@ object Libs {
         }
     }
 
+    object Gson {
+        private const val version = "2.8.6"
+        const val gson = "com.google.code.gson:gson:$version"
+    }
+
+    object OkHttp {
+        private const val version = "4.3.1"
+        const val okHttp = "com.squareup.okhttp3:okhttp:$version"
+    }
+
     object ReactiveX {
         object Java {
-            private const val version = "3.0.2"
-            const val rxJava3 = "io.reactivex.rxjava3:rxjava:$version"
+            private const val version = "2.1.1"
+            const val rxJava2Android = "io.reactivex.rxjava2:rxandroid:$version"
         }
+
+        object Kotlin {
+            private const val version = "2.4.0"
+            const val rxKotlin = "io.reactivex.rxjava2:rxkotlin:$version"
+        }
+    }
+
+    object Retrofit {
+        private const val version = "2.8.1"
+        const val retrofit = "com.squareup.retrofit2:retrofit:$version"
+        const val retrofitGson = "com.squareup.retrofit2:converter-gson:$version"
+        const val retrofitRxAdapter = "com.squareup.retrofit2:adapter-rxjava2:$version"
+    }
+
+    object Timber {
+        private const val version = "4.7.1"
+        const val timber = "com.jakewharton.timber:timber:${version}"
     }
 
     object Test {
