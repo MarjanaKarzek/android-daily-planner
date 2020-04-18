@@ -1,0 +1,9 @@
+import com.karzek.buildsrc.Libs
+
+apply plugin: 'java-library'
+apply plugin: 'kotlin'
+apply plugin: 'kotlin-kapt'
+
+dependencies {
+    implementation Libs.Kotlin.stdlib
+}

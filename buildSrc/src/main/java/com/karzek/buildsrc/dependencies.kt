@@ -22,6 +22,28 @@ object Libs {
         const val coreKtx = "androidx.core:core-ktx:1.2.0"
     }
 
+    object Dagger {
+        private const val version = "2.27"
+        const val dagger = "com.google.dagger:dagger:$version"
+        const val androidSupport = "com.google.dagger:dagger-android-support:$version"
+        const val compiler = "com.google.dagger:dagger-compiler:$version"
+        const val androidProcessor = "com.google.dagger:dagger-android-processor:$version"
+
+        object JW {
+            private const val version = "0.2.0"
+            const val reflect = "com.jakewharton.dagger:dagger-reflect:$version"
+            const val codegen = "com.jakewharton.dagger:dagger-codegen:$version"
+
+        }
+    }
+
+    object ReactiveX {
+        object Java {
+            private const val version = "3.0.2"
+            const val rxJava3 = "io.reactivex.rxjava3:rxjava:$version"
+        }
+    }
+
     object Test {
         object Mockk {
             private const val version = "1.9.3"
