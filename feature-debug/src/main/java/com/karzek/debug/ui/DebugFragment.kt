@@ -28,7 +28,6 @@ class DebugFragment : BaseFragment(R.layout.fragment_debug) {
 
         subscribeToViewModel()
         subscribeToUI()
-
     }
 
     private fun subscribeToViewModel() {

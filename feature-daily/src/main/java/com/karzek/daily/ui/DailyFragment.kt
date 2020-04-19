@@ -3,22 +3,27 @@ package com.karzek.daily.ui
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.karzek.core.ui.base.BaseFragment
 import com.karzek.core.ui.error.UIError.NetworkConnection
 import com.karzek.core.ui.error.UIError.Unauthorised
 import com.karzek.core.ui.error.UIError.Unknown
+import com.karzek.core.util.toFullDateFormat
 import com.karzek.daily.BuildConfig
 import com.karzek.daily.R
 import com.karzek.daily.R.layout
 import com.karzek.daily.ui.adapter.ToDoAdapter
 import io.reactivex.rxkotlin.addTo
 import io.reactivex.rxkotlin.subscribeBy
+import kotlinx.android.synthetic.main.fragment_daily.app_bar
+import kotlinx.android.synthetic.main.fragment_daily.collapsing_toolbar
 import kotlinx.android.synthetic.main.fragment_daily.quote_author
 import kotlinx.android.synthetic.main.fragment_daily.quote_text
 import kotlinx.android.synthetic.main.fragment_daily.to_do_list
 import kotlinx.android.synthetic.main.fragment_daily.weather_temperature
+import java.util.Date
 
 class DailyFragment : BaseFragment(layout.fragment_daily) {
 
@@ -33,6 +38,7 @@ class DailyFragment : BaseFragment(layout.fragment_daily) {
     ) {
         super.onViewCreated(view, savedInstanceState)
 
+        setupToolbar()
         setupRecyclerView()
 
         subscribeToViewModel()
@@ -40,6 +46,11 @@ class DailyFragment : BaseFragment(layout.fragment_daily) {
         viewModel.getQuoteOfTheDay()
         viewModel.getCurrentWeather()
         viewModel.getToDos()
+    }
+
+    private fun setupToolbar() {
+        collapsing_toolbar.title = Date().toFullDateFormat()
+        (activity as AppCompatActivity).setSupportActionBar(app_bar)
     }
 
     private fun setupRecyclerView() {

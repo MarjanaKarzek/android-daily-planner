@@ -1,0 +1,19 @@
+<resources>
+
+  <style name="AppTheme" parent="Theme.MaterialComponents.Light.NoActionBar">
+    <item name="colorPrimary">@color/primaryColor</item>
+    <item name="colorPrimaryDark">@color/primaryDarkColor</item>
+    <item name="colorAccent">@color/primaryColor</item>
+    <item name="android:statusBarColor">@color/primaryColor</item>
+  </style>
+
+  <style name="ExpandedTitle" parent="TextAppearance.AppCompat.Display3">
+    <item name="android:textSize">20sp</item>
+    <item name="android:textColor">@color/lightTextColor</item>
+  </style>
+
+  <style name="CollapsedTitle" parent="TextAppearance.AppCompat.Title">
+    <item name="android:textColor">@color/lightTextColor</item>
+  </style>
+
+</resources>

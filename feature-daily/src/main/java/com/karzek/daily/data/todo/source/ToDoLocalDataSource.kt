@@ -14,7 +14,13 @@ class ToDoLocalDataSource @Inject constructor() : IToDoLocalDataSource {
                 ToDo("Tidy up the flat", Date()),
                 ToDo("Get groceries", Date()),
                 ToDo("Call landlord", Date()),
-                ToDo("Have a virtual coffee with Nina", Date())
+                ToDo("Have a virtual coffee with Nina", Date()),
+                ToDo("Eat cookies", Date()),
+                ToDo("Get a birthday present for Fabian", Date()),
+                ToDo("Walk the dog", Date()),
+                ToDo("Implement CollapsingToolbarLayout", Date()),
+                ToDo("Read a chapter", Date()),
+                ToDo("Practice Spanish", Date())
             )
         )
     }

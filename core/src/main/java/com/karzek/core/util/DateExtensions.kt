@@ -11,3 +11,7 @@ fun Date.toISO8601u2004(): String {
 fun String.toDate(): Date? {
     return DateFormat.getDateInstance().parse(this)
 }
+
+fun Date.toFullDateFormat(): String {
+    return SimpleDateFormat("EEEE, dd. MMMM yyyy").format(this)
+}
