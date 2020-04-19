@@ -25,10 +25,13 @@ class WeatherApiModule {
             .addInterceptor { chain ->
                 val request = chain.request()
                 val session = (sessionManager.getSession() as? Authorised)
-                val headerBuilder = request.newBuilder()
 
-                headerBuilder.addHeader(WEATHER_API_KEY_HEADER, session?.weatherApiToken ?: "")
-                chain.proceed(headerBuilder.build())
+                val url = request.url.newBuilder()
+                    .addQueryParameter(WEATHER_API_KEY_HEADER, session?.weatherApiToken ?: "").build()
+                val requestBuilder = request.newBuilder()
+                    .url(url)
+
+                chain.proceed(requestBuilder.build())
             }
             .build()
 
@@ -42,7 +45,7 @@ class WeatherApiModule {
     }
 
     companion object {
-        private const val WEATHER_BASE_URL = "https://api.weatherbit.io/v2.0/"
+        private const val WEATHER_BASE_URL = "https://api.weatherbit.io/"
         private const val WEATHER_API_KEY_HEADER = "key"
     }
 

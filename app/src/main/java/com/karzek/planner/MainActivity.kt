@@ -1,9 +1,9 @@
 package com.karzek.planner
 
 import android.os.Bundle
+import androidx.navigation.Navigation
+import androidx.navigation.ui.NavigationUI
 import com.karzek.core.ui.base.BaseActivity
-import com.karzek.core.util.replaceFragment
-import com.karzek.daily.ui.DailyFragment
 
 class MainActivity : BaseActivity() {
 
@@ -11,11 +11,16 @@ class MainActivity : BaseActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        showDaily()
+        setupNavigation()
     }
 
-    private fun showDaily() {
-        replaceFragment(DailyFragment.newInstance())
+    override fun onSupportNavigateUp(): Boolean {
+        return Navigation.findNavController(this, R.id.fragment_host).navigateUp()
+    }
+
+    private fun setupNavigation() {
+        val navController = Navigation.findNavController(findViewById(R.id.fragment_host))
+        NavigationUI.setupActionBarWithNavController(this, navController)
     }
 
 }

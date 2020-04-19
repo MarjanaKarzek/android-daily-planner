@@ -60,4 +60,6 @@ dependencies {
   implementation Libs.ReactiveX.Java.rxJava2Android
   implementation Libs.OkHttp.okHttp
   implementation Libs.Gson.gson
+  implementation Libs.Navigation.fragment
+  implementation Libs.Navigation.ui
 }

@@ -40,13 +40,19 @@ object Libs {
             private const val version = "0.2.0"
             const val reflect = "com.jakewharton.dagger:dagger-reflect:$version"
             const val codegen = "com.jakewharton.dagger:dagger-codegen:$version"
-
         }
     }
 
     object Gson {
         private const val version = "2.8.6"
         const val gson = "com.google.code.gson:gson:$version"
+    }
+
+    object Navigation {
+        private const val version = "2.3.0-alpha05"
+        const val fragment = "androidx.navigation:navigation-fragment-ktx:$version"
+        const val ui = "androidx.navigation:navigation-ui-ktx:$version"
+        const val test = "androidx.navigation:navigation-testing:$version"
     }
 
     object OkHttp {

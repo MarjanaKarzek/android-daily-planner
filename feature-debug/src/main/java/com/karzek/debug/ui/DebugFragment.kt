@@ -28,6 +28,7 @@ class DebugFragment : BaseFragment(R.layout.fragment_debug) {
 
         subscribeToViewModel()
         subscribeToUI()
+
     }
 
     private fun subscribeToViewModel() {
@@ -54,7 +55,10 @@ class DebugFragment : BaseFragment(R.layout.fragment_debug) {
 
     private fun subscribeToUI() {
         action_save.setOnClickListener {
-            viewModel.onSaveClicked(input_weather_api_key.text.toString())
+            val input = input_weather_api_key.text.toString()
+            if (input.isNotEmpty()) {
+                viewModel.onSaveClicked(input)
+            }
         }
     }
 
@@ -63,7 +67,4 @@ class DebugFragment : BaseFragment(R.layout.fragment_debug) {
         super.onDestroyView()
     }
 
-    companion object {
-        fun newInstance() = DebugFragment()
-    }
 }

@@ -4,11 +4,17 @@ apply from: "$rootDir/gradle/android-library.gradle"
 
 dependencies {
   implementation project(':core')
+
+  implementation project(':feature-debug')
+
   implementation project(':lib-localization')
   implementation project(':lib-authorization')
 
   implementation Libs.ReactiveX.Java.rxJava2Android
   implementation Libs.ReactiveX.Kotlin.rxKotlin
+
+  implementation Libs.Navigation.fragment
+  implementation Libs.Navigation.ui
 
   implementation Libs.Retrofit.retrofit
   implementation Libs.Retrofit.retrofitGson

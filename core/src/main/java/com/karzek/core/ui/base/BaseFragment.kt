@@ -1,7 +1,5 @@
 package com.karzek.core.ui.base
 
-import android.os.Bundle
-import android.view.View
 import androidx.annotation.LayoutRes
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider

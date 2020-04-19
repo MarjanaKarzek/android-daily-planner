@@ -3,10 +3,14 @@ package com.karzek.daily.ui
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
+import androidx.activity.OnBackPressedCallback
+import androidx.navigation.fragment.findNavController
 import com.karzek.core.ui.base.BaseFragment
 import com.karzek.core.ui.error.UIError.NetworkConnection
 import com.karzek.core.ui.error.UIError.Unauthorised
 import com.karzek.core.ui.error.UIError.Unknown
+import com.karzek.daily.BuildConfig
+import com.karzek.daily.R
 import com.karzek.daily.R.layout
 import io.reactivex.rxkotlin.addTo
 import io.reactivex.rxkotlin.subscribeBy
@@ -30,14 +34,15 @@ class DailyFragment : BaseFragment(layout.fragment_daily) {
 
         viewModel.getQuoteOfTheDay()
         viewModel.getCurrentWeather()
+
     }
 
     private fun subscribeToViewModel() {
         viewModel.error
             .subscribeBy {
-                when(it) {
+                when (it) {
                     NetworkConnection -> Toast.makeText(context, "NetworkError", Toast.LENGTH_LONG).show()
-                    Unauthorised -> Toast.makeText(context, "UnauthorisedError", Toast.LENGTH_LONG).show()
+                    Unauthorised -> handleUnauthorisedError()
                     Unknown -> Toast.makeText(context, "UnknownError", Toast.LENGTH_LONG).show()
                 }
             }
@@ -57,7 +62,12 @@ class DailyFragment : BaseFragment(layout.fragment_daily) {
             .addTo(compositeDisposable)
     }
 
-    companion object {
-        fun newInstance() = DailyFragment()
+    private fun handleUnauthorisedError() {
+        if (BuildConfig.DEBUG) {
+            findNavController().navigate(R.id.action_dailyFragment_to_debugFragment)
+        } else {
+            Toast.makeText(context, "UnauthorisedError", Toast.LENGTH_LONG).show()
+        }
     }
+
 }
