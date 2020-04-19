@@ -10,6 +10,8 @@ dependencies {
   implementation project(':lib-localization')
   implementation project(':lib-authorization')
 
+  implementation Libs.AndroidX.constraintLayout
+
   implementation Libs.ReactiveX.Java.rxJava2Android
   implementation Libs.ReactiveX.Kotlin.rxKotlin
 

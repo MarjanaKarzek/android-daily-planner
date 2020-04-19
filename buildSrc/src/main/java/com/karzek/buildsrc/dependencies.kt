@@ -21,6 +21,7 @@ object Libs {
         const val appcompat = "androidx.appcompat:appcompat:1.1.0"
         const val coreKtx = "androidx.core:core-ktx:1.2.0"
         const val crypto = "androidx.security:security-crypto:1.0.0-rc01"
+        const val constraintLayout = "androidx.constraintlayout:constraintlayout:2.0.0-alpha1"
     }
 
     object Chuck {
