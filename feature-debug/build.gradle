@@ -1,0 +1,11 @@
+import com.karzek.buildsrc.Libs
+
+apply from: "$rootDir/gradle/android-library.gradle"
+
+dependencies {
+  implementation project(':core')
+  implementation project(':lib-authorization')
+
+  implementation Libs.ReactiveX.Java.rxJava2Android
+  implementation Libs.ReactiveX.Kotlin.rxKotlin
+}

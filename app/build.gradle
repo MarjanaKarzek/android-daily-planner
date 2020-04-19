@@ -48,13 +48,16 @@ dependencies {
 
   implementation project(':core')
   implementation project(':feature-daily')
+  implementation project(':feature-debug')
+  implementation project(':lib-authorization')
+  implementation project(':lib-localization')
 
   implementation Libs.Kotlin.stdlib
   implementation Libs.AndroidX.appcompat
   implementation Libs.AndroidX.coreKtx
+  implementation Libs.AndroidX.crypto
   implementation Libs.Timber.timber
   implementation Libs.ReactiveX.Java.rxJava2Android
   implementation Libs.OkHttp.okHttp
   implementation Libs.Gson.gson
-
 }

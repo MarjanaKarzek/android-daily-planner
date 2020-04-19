@@ -14,10 +14,9 @@ class NetworkingModule {
 
     @Singleton
     @Provides
-    fun provideOkHttpClient(context: Context): OkHttpClient {
+    fun provideOkHttpClientBuilder(context: Context): OkHttpClient.Builder {
         return OkHttpClient.Builder()
             .addInterceptor(ChuckInterceptor(context))
-            .build()
     }
 
     @Singleton

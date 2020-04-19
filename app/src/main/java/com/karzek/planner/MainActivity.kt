@@ -17,4 +17,5 @@ class MainActivity : BaseActivity() {
     private fun showDaily() {
         replaceFragment(DailyFragment.newInstance())
     }
+
 }

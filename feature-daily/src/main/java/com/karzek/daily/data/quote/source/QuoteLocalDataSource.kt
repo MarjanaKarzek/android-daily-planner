@@ -51,12 +51,14 @@ class QuoteLocalDataSource @Inject constructor(
     }
 
     private fun isCacheValid(): Single<Boolean> {
-        val timestamp = cache.getString(KEY_QUOTE_OF_THE_DAY_TIMESTAMP, null)
-        var isValid = false
-        timestamp?.run {
-            isValid = this == Date().toISO8601u2004()
+        return Single.fromCallable {
+            var isValid = false
+            val timestamp = cache.getString(KEY_QUOTE_OF_THE_DAY_TIMESTAMP, null)
+            timestamp?.run {
+                isValid = this == Date().toISO8601u2004()
+            }
+            isValid
         }
-        return Single.just(isValid)
     }
 
     companion object {

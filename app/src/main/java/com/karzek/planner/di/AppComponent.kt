@@ -2,6 +2,7 @@ package com.karzek.planner.di
 
 import com.karzek.core.di.CoreModule
 import com.karzek.daily.di.DailyModule
+import com.karzek.debug.di.DebugModule
 import com.karzek.planner.PlannerApplication
 import dagger.Component
 import dagger.android.AndroidInjector
@@ -16,7 +17,8 @@ import javax.inject.Singleton
         AppModule::class,
         CoreModule::class,
         ViewModelModule::class,
-        DailyModule::class
+        DailyModule::class,
+        DebugModule::class
     ]
 )
 interface AppComponent : AndroidInjector<PlannerApplication> {

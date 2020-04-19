@@ -7,6 +7,23 @@
     android:gravity="center"
     >
 
+  <ImageView
+      android:id="@+id/weather_icon"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:layout_margin="16dp"
+    />
+
+  <TextView
+      android:id="@+id/weather_temperature"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:layout_margin="16dp"
+      android:textAlignment="center"
+      android:textSize="12sp"
+      tools:text="12 Degrees"
+      />
+
   <TextView
       android:id="@+id/quote_text"
       android:layout_width="match_parent"

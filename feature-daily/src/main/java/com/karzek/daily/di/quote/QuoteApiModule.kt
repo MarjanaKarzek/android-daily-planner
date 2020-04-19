@@ -1,7 +1,7 @@
-package com.karzek.daily.di
+package com.karzek.daily.di.quote
 
 import com.karzek.core.di.NetworkingModule
-import com.karzek.daily.http.quote.QuoteApiService
+import com.karzek.daily.http.quote.IQuoteApiService
 import dagger.Module
 import dagger.Provides
 import okhttp3.OkHttpClient
@@ -16,15 +16,15 @@ class QuoteApiModule {
     @Singleton
     @Provides
     fun providesQuotesApiService(
-        okHttpClient: OkHttpClient
-    ): QuoteApiService {
+        okHttpClientBuilder: OkHttpClient.Builder
+    ): IQuoteApiService {
         return Retrofit.Builder()
             .baseUrl(QUOTE_BASE_URL)
             .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
             .addConverterFactory(GsonConverterFactory.create())
-            .client(okHttpClient)
+            .client(okHttpClientBuilder.build())
             .build()
-            .create(QuoteApiService::class.java)
+            .create(IQuoteApiService::class.java)
     }
 
     companion object {

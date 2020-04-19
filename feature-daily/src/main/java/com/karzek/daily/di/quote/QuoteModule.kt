@@ -1,10 +1,11 @@
-package com.karzek.daily.di
+package com.karzek.daily.di.quote
 
 import com.karzek.daily.data.quote.QuoteRepository
 import com.karzek.daily.data.quote.source.IQuoteLocalDataSource
 import com.karzek.daily.data.quote.source.IQuoteRemoteDataSource
 import com.karzek.daily.data.quote.source.QuoteLocalDataSource
 import com.karzek.daily.data.quote.source.QuoteRemoteDataSource
+import com.karzek.daily.di.quote.QuoteApiModule
 import com.karzek.daily.domain.quote.GetQuoteOfTheDay
 import com.karzek.daily.domain.quote.IGetQuoteOfTheDay
 import com.karzek.daily.domain.quote.repository.IQuoteRepository
