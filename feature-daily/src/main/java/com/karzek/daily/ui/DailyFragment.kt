@@ -2,6 +2,7 @@ package com.karzek.daily.ui
 
 import android.os.Bundle
 import android.view.View
+import android.view.WindowManager
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.fragment.findNavController
@@ -22,6 +23,7 @@ import kotlinx.android.synthetic.main.fragment_daily.collapsing_toolbar
 import kotlinx.android.synthetic.main.fragment_daily.quote_author
 import kotlinx.android.synthetic.main.fragment_daily.quote_text
 import kotlinx.android.synthetic.main.fragment_daily.to_do_list
+import kotlinx.android.synthetic.main.fragment_daily.weather_icon
 import kotlinx.android.synthetic.main.fragment_daily.weather_temperature
 import java.util.Date
 
@@ -79,7 +81,8 @@ class DailyFragment : BaseFragment(layout.fragment_daily) {
 
         viewModel.currentWeather
             .subscribeBy {
-                weather_temperature.text = "${it.temperature} Grad"
+                weather_icon.setImageResource(it.iconId)
+                weather_temperature.text = "${it.temperature}°C"
             }
             .addTo(compositeDisposable)
 

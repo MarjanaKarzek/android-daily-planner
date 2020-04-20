@@ -13,5 +13,5 @@ fun String.toDate(): Date? {
 }
 
 fun Date.toFullDateFormat(): String {
-    return SimpleDateFormat("EEEE, dd. MMMM yyyy").format(this)
+    return SimpleDateFormat("EEEE, d. MMMM yyyy").format(this)
 }
