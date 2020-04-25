@@ -1,5 +1,6 @@
 package com.karzek.daily.domain.weather
 
+import com.karzek.core.util.isForbidden
 import com.karzek.core.util.isUnauthorised
 import com.karzek.daily.domain.weather.IGetCurrentLocalWeather.Input
 import com.karzek.daily.domain.weather.IGetCurrentLocalWeather.Output
@@ -26,6 +27,7 @@ class GetCurrentLocalWeather @Inject constructor(
             }
             .onErrorReturn {
                 when {
+                    it.isForbidden() -> ErrorUnauthorised
                     it.isUnauthorised() -> ErrorUnauthorised
                     else -> ErrorUnknown
                 }

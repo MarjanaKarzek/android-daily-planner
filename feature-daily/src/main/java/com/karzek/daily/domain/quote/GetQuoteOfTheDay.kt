@@ -19,7 +19,6 @@ class GetQuoteOfTheDay @Inject constructor(
                 Success(it) as Output
             }
             .onErrorReturn {
-                Timber.e(it)
                 ErrorUnknown
             }
     }

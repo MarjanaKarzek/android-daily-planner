@@ -16,10 +16,7 @@ class WeatherRemoteDataSource @Inject constructor(
         return apiService.getCurrentWeather(location.latitude, location.longitude)
             .map {
                 it.error?.run {
-                    if (
-                        this.contains("API key is required") ||
-                        this.contains("API ket not valid")
-                    ) {
+                    if (this.contains("API key is required")) {
                         throw ManualUnauthorisedException()
                     } else {
                         throw ManualUnknownProblemException()
