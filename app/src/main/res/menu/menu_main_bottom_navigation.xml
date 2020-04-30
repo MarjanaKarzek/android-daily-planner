@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+  <item
+      android:id="@+id/daily"
+      android:title="Daily"
+      android:icon="@drawable/ic_daily"
+      />
+
+  <item
+      android:id="@+id/monthly"
+      android:title="April"
+      android:icon="@drawable/ic_monthly"
+      />
+
+  <item
+      android:id="@+id/future_log"
+      android:title="Future Log"
+      android:icon="@drawable/ic_future_log"
+      />
+
+  <item
+      android:id="@+id/profile"
+      android:title="Profile"
+      android:icon="@drawable/ic_profile"
+      />
+
+</menu>

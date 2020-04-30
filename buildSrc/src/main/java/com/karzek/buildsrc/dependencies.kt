@@ -24,6 +24,12 @@ object Libs {
         const val constraintLayout = "androidx.constraintlayout:constraintlayout:2.0.0-alpha1"
     }
 
+    object AutoDispose {
+        private const val version = "1.4.0"
+        const val autoDispose = "com.uber.autodispose:autodispose:$version"
+        const val android = "com.uber.autodispose:autodispose-android-archcomponents:$version"
+    }
+
     object Chuck {
         private const val version = "1.1.0"
         const val debug = "com.readystatesoftware.chuck:library:$version"
@@ -49,6 +55,11 @@ object Libs {
         const val gson = "com.google.code.gson:gson:$version"
     }
 
+    object LeakCanary {
+        private const val version = "2.2"
+        const val leakCanary = "com.squareup.leakcanary:leakcanary-android:$version"
+    }
+
     object Navigation {
         private const val version = "2.3.0-alpha05"
         const val fragment = "androidx.navigation:navigation-fragment-ktx:$version"
@@ -70,6 +81,12 @@ object Libs {
         object Kotlin {
             private const val version = "2.4.0"
             const val rxKotlin = "io.reactivex.rxjava2:rxkotlin:$version"
+        }
+
+        object Binding {
+            private const val version = "3.1.0"
+            const val binding =  "com.jakewharton.rxbinding3:rxbinding:$version"
+            const val material = "com.jakewharton.rxbinding3:rxbinding-material:$version"
         }
     }
 

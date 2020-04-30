@@ -14,6 +14,11 @@ dependencies {
 
   implementation Libs.ReactiveX.Java.rxJava2Android
   implementation Libs.ReactiveX.Kotlin.rxKotlin
+  implementation Libs.ReactiveX.Binding.binding
+  implementation Libs.ReactiveX.Binding.material
+
+  implementation Libs.AutoDispose.autoDispose
+  implementation Libs.AutoDispose.android
 
   implementation Libs.Navigation.fragment
   implementation Libs.Navigation.ui

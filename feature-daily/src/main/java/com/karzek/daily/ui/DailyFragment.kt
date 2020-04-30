@@ -2,11 +2,12 @@ package com.karzek.daily.ui
 
 import android.os.Bundle
 import android.view.View
-import android.view.WindowManager
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.Lifecycle
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.jakewharton.rxbinding3.view.clicks
 import com.karzek.core.ui.base.BaseFragment
 import com.karzek.core.ui.error.UIError.NetworkConnection
 import com.karzek.core.ui.error.UIError.Unauthorised
@@ -16,8 +17,11 @@ import com.karzek.daily.BuildConfig
 import com.karzek.daily.R
 import com.karzek.daily.R.layout
 import com.karzek.daily.ui.adapter.ToDoAdapter
+import com.uber.autodispose.android.lifecycle.AndroidLifecycleScopeProvider
+import com.uber.autodispose.autoDispose
 import io.reactivex.rxkotlin.addTo
 import io.reactivex.rxkotlin.subscribeBy
+import kotlinx.android.synthetic.main.fragment_daily.add_todo
 import kotlinx.android.synthetic.main.fragment_daily.app_bar
 import kotlinx.android.synthetic.main.fragment_daily.collapsing_toolbar
 import kotlinx.android.synthetic.main.fragment_daily.quote_author
@@ -44,6 +48,7 @@ class DailyFragment : BaseFragment(layout.fragment_daily) {
         setupRecyclerView()
 
         subscribeToViewModel()
+        subscribeToLayout()
 
         viewModel.getQuoteOfTheDay()
         viewModel.getCurrentWeather()
@@ -91,6 +96,12 @@ class DailyFragment : BaseFragment(layout.fragment_daily) {
                 adapter.setData(it)
             }
             .addTo(compositeDisposable)
+    }
+
+    private fun subscribeToLayout() {
+        add_todo.clicks()
+            .autoDispose(AndroidLifecycleScopeProvider.from(this, Lifecycle.Event.ON_DESTROY))
+            .subscribe { Toast.makeText(requireContext(), "Todo: Add Todos =)", Toast.LENGTH_SHORT).show() }
     }
 
     private fun handleUnauthorisedError() {
